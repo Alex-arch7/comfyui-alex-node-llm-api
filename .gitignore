@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+cache/models.json
+cache/*.tmp
+.DS_Store

@@ -1,0 +1,18 @@
+[project]
+name = "comfyui-alex-node-llm-api"
+description = "Unified ComfyUI LLM node: OpenAI-compatible API key + endpoint + refreshable model dropdown + max_tokens/temperature + image/video/prompt input. Merges comfyui-art-venture LLM nodes and qwen_VL_model/qwen_chat_model styles into one node."
+version = "0.1.0"
+license = { file = "LICENSE" }
+dependencies = [
+  "requests",
+  "pillow",
+  "numpy",
+]
+
+[project.urls]
+Repository = "https://github.com/alex/comfyui-alex-node-llm-api"
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "Alex LLM API (Unified)"
+Icon = ""

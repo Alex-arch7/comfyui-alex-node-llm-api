@@ -1,0 +1,137 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "Note",
+      "pos": [40, -160],
+      "size": [420, 220],
+      "flags": {},
+      "mode": 0,
+      "order": 0,
+      "properties": {},
+      "widgets_values": [
+        "Alex LLM API (Unified) 使用说明:\n1. 填入 openai_api_key 与 endpoint (默认 https://api.openai.com/v1)\n2. 点击节点上的 🔄 Refresh Models 按钮, 模型下拉框会刷新为该 endpoint 的模型列表\n3. 选择 model, 设置 max_tokens / temperature\n4. 可选接入 image / video (视频会均匀抽帧作为图片发送), 填写 prompt 运行\n5. custom_model 非空时覆盖下拉框选择"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [40, 80],
+      "size": [315, 314],
+      "flags": {},
+      "mode": 0,
+      "order": 1,
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": ["example.png", "image"],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [1],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "AlexLLMNode",
+      "pos": [440, 80],
+      "size": [420, 640],
+      "flags": {},
+      "mode": 0,
+      "order": 2,
+      "properties": {
+        "Node name for S&R": "AlexLLMNode"
+      },
+      "inputs": [
+        {
+          "name": "system",
+          "type": "STRING",
+          "widget": { "name": "system" },
+          "link": null
+        },
+        {
+          "name": "preset_prompt",
+          "type": "COMBO",
+          "widget": { "name": "preset_prompt" },
+          "link": null
+        },
+        {
+          "name": "custom_model",
+          "type": "STRING",
+          "widget": { "name": "custom_model" },
+          "link": null
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "video",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video_frame_count",
+          "type": "INT",
+          "widget": { "name": "video_frame_count" },
+          "link": null
+        },
+        {
+          "name": "timeout",
+          "type": "INT",
+          "widget": { "name": "timeout" },
+          "link": null
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": { "name": "seed" },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null,
+          "slot_index": 0
+        }
+      ],
+      "widgets_values": [
+        "",
+        "https://api.openai.com/v1",
+        "gpt-4o",
+        1024,
+        0.7,
+        "Describe this image in detail.",
+        "",
+        "Original",
+        "",
+        8,
+        120,
+        0
+      ]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 3, "IMAGE"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
